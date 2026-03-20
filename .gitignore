@@ -1,0 +1,24 @@
+# Runtime state (regenerated automatically)
+.claude/circuit-breaker-state.json
+.claude/compact-state.json
+.claude/harness.json
+
+# Coordination (ephemeral, per-session)
+.planning/coordination/instances/*.json
+.planning/coordination/claims/*.json
+
+# Telemetry logs
+.planning/telemetry/*.jsonl
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local

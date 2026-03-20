@@ -75,11 +75,17 @@ Configure in `harness.json`:
 
 ## Circuit Breaker
 
-Tracks consecutive tool failures. After 3 failures on the same approach:
+Tracks tool failures. After 3 failures:
 - Suggests alternative approaches
 - After 5 trips: escalates to "stop and rethink" message
 
 State stored in `.claude/circuit-breaker-state.json` (gitignored).
+
+**Note:** The failure counter increments on every `PostToolUseFailure` event and resets
+when the threshold is hit (tripped). There is no success-reset mechanism — the counter
+tracks failures since the last trip, not strictly consecutive failures. In practice this
+means scattered failures across a long session can eventually trip the breaker, which is
+conservative by design.
 
 ## Quality Gate
 

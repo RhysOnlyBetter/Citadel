@@ -54,7 +54,10 @@ function main(input) {
   if (fs.existsSync(path.join(worktreePath, 'requirements.txt'))) {
     if (!fs.existsSync(path.join(worktreePath, '.venv'))) {
       try {
-        execSync('python -m venv .venv && .venv/bin/pip install -r requirements.txt', {
+        const pipPath = process.platform === 'win32'
+          ? '.venv\\Scripts\\pip'
+          : '.venv/bin/pip';
+        execSync(`python -m venv .venv && ${pipPath} install -r requirements.txt`, {
           cwd: worktreePath,
           timeout: 120000,
           encoding: 'utf8',

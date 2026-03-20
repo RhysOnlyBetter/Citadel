@@ -90,7 +90,7 @@ For each function in the target file:
 3. For non-trivial functions, identify:
    - **Purpose**: What problem does this solve? Why does it exist?
    - **Parameters**: Types are visible in TS — document *semantics*, not types.
-     Bad: `@param id - the id`. Good: `@param id - Realm entity ID, used for DB lookup`.
+     Bad: `@param id - the id`. Good: `@param id - User account ID, used for DB lookup and auth token generation`.
    - **Return value**: What does the caller get? What shape, what guarantees?
    - **Throws/errors**: What can go wrong? Under what conditions?
    - **Side effects**: Does it mutate state, write to disk, emit events, call APIs?
@@ -156,7 +156,7 @@ For HTTP APIs (route files, API directories):
 
 1. Read all route/endpoint definitions
 2. For each endpoint, document:
-   - **Method + Path**: `GET /api/realms/:id`
+   - **Method + Path**: `GET /api/users/:id`
    - **Description**: What it does
    - **Parameters**: Path params, query params, request body (with types)
    - **Response**: Success shape (with example), status codes

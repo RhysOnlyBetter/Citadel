@@ -8,15 +8,16 @@ Built from running 198 autonomous agents across 32 parallel sessions on a produc
 
 ## Quickstart
 
+**Requires:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed, [Node.js 18+](https://nodejs.org/) (for hooks and scripts)
+
 ```bash
-# Copy harness files into your project
 git clone https://github.com/DevMoses/claude-harness.git
-cp -r claude-harness/.claude your-project/.claude
-cp -r claude-harness/.planning your-project/.planning
-cp -r claude-harness/scripts your-project/scripts
+cp -r claude-harness/.claude ./
+cp -r claude-harness/.planning ./
+cp -r claude-harness/scripts ./
 ```
 
-Then in Claude Code:
+Then open your project in Claude Code (`cd your-project && claude`) and run:
 
 ```
 /do setup
@@ -241,14 +242,6 @@ The harness is designed for Claude Code specifically. The skills, hooks, and age
 **What's the difference between a skill and an agent?**
 
 Skills load instructions into the current Claude session (no new process). Agents spawn a new Claude process with its own context window. Skills are cheap and fast. Agents are expensive but isolated.
-
----
-
-## Video
-
-Watch the full build: [Building a Developer Dashboard with an Agent Harness](#) (link coming soon)
-
-Every capability shown in the video is something you can install and use right now.
 
 ---
 

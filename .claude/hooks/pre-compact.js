@@ -40,7 +40,7 @@ function main() {
         if (/^Status:\s*active/mi.test(content)) {
           state.activeCampaign = file.replace('.md', '');
           // Extract the Active Context section
-          const ctxMatch = content.match(/## Active Context\s*\n([\s\S]*?)(?=\n## |\n---|\Z)/);
+          const ctxMatch = content.match(/## Active Context\s*\n([\s\S]*?)(?=\n## |\n---|$)/);
           if (ctxMatch) {
             state.recentContext = ctxMatch[1].trim().slice(0, 500);
           }

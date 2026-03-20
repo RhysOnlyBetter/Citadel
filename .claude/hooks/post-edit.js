@@ -221,8 +221,8 @@ function performanceLint(filePath, relativePath) {
     if (/\bprompt\s*\(/.test(content)) warnings.push('Uses prompt() — use an in-app input instead');
   }
 
-  // Check for transition-all (CSS performance)
-  if (/transition-all/.test(content)) {
+  // Check for transition-all (CSS performance) — only in CSS/JS/TS files
+  if (/\.(ts|tsx|js|jsx|css|scss)$/.test(filePath) && /transition-all/.test(content)) {
     warnings.push('Uses transition-all — specify properties explicitly (e.g., transition-[opacity,transform])');
   }
 

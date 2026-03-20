@@ -2,26 +2,33 @@
 
 From install to first `/do` command in 5 minutes.
 
+## Prerequisites
+
+- **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** — the CLI tool this harness extends
+- **[Node.js 18+](https://nodejs.org/)** — required for hooks and scripts
+
 ## 1. Copy the harness into your project
 
 ```bash
-# Clone the harness
 git clone https://github.com/DevMoses/claude-harness.git
+cd your-project
 
-# Copy harness files into your project
-cp -r claude-harness/.claude your-project/.claude
-cp -r claude-harness/.planning your-project/.planning
-cp -r claude-harness/scripts your-project/scripts
+# Copy harness directories (these won't conflict with existing code)
+cp -r ../claude-harness/.claude .
+cp -r ../claude-harness/.planning .
+cp -r ../claude-harness/scripts .
 
 # If you don't have a CLAUDE.md yet, copy the starter
-cp claude-harness/CLAUDE.md your-project/CLAUDE.md
+cp ../claude-harness/CLAUDE.md .
 ```
+
+> **Note:** If your project already has a `.gitignore`, append the entries from the harness `.gitignore` rather than overwriting yours.
 
 Or copy manually — the harness is just files, no build step.
 
 ## 2. Run setup
 
-Open your project in Claude Code, then:
+Open your project in Claude Code (`cd your-project && claude`), then:
 
 ```
 /do setup

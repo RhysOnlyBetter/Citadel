@@ -104,7 +104,7 @@ function run() {
 
     // Rule: no-magic-intervals
     if (builtInRules.includes('no-magic-intervals') && /\.(ts|tsx|js|jsx)$/.test(file)) {
-      const intervalMatch = content.match(/setInterval\s*\(\s*\w+\s*,\s*\d+\s*\)/);
+      const intervalMatch = content.match(/setInterval\s*\([^,]+,\s*\d+\s*\)/);
       if (intervalMatch) {
         violations.push({
           file,

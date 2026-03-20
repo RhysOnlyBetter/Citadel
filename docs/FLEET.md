@@ -40,6 +40,11 @@ implements client-side throttling without hitting the limit first.
 
 ### Worktree Isolation
 
+A [git worktree](https://git-scm.com/docs/git-worktree) is a separate working directory
+linked to the same repository. Think of it as a lightweight clone — it shares the same
+`.git` history but has its own files and branch. This lets multiple agents edit files
+simultaneously without conflicts.
+
 Every agent runs in its own git worktree:
 - Separate working directory — no file conflicts between agents
 - Independent git branch — clean merge path

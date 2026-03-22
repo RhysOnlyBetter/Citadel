@@ -1,3 +1,0 @@
-2026-03-21T23:33:02.027Z | protect-files | blocked | Edit .claude/hooks/foo.js (pattern: .claude/hooks/*)
-2026-03-21T23:33:08.145Z | protect-files | parse-fail | Could not parse stdin JSON
-2026-03-22T00:36:32.309Z | protect-files | blocked | Edit .claude/hooks/post-edit.js (pattern: .claude/hooks/*)

@@ -1,4 +1,4 @@
-# Citadel — Agent Orchestration for Claude Code
+# Citadel — Agent Orchestration Harness for Claude Code
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)

@@ -7,8 +7,8 @@
  * Run via setup: automatically invoked during /setup
  *
  * Tests:
- *   1. Every hook file referenced in settings.json exists and parses (require())
- *   2. Settings.json is valid JSON with expected structure
+ *   1. Every hook file referenced in hooks.json exists and parses (require())
+ *   2. hooks.json is valid JSON with expected structure
  *   3. Hook commands use relative paths (not $CLAUDE_PROJECT_DIR)
  *   4. All hook utility imports resolve
  *   5. No platform-specific assumptions that would break cross-platform
@@ -55,24 +55,24 @@ function main() {
   // ── 1. Settings.json exists and is valid JSON ──
 
   let settings;
-  check('settings.json exists', () => {
+  check('hooks.json exists', () => {
     if (!fs.existsSync(SETTINGS_PATH)) return 'File not found';
     return true;
   });
 
-  check('settings.json is valid JSON', () => {
+  check('hooks.json is valid JSON', () => {
     settings = JSON.parse(fs.readFileSync(SETTINGS_PATH, 'utf8'));
     return true;
   });
 
-  check('settings.json has hooks object', () => {
+  check('hooks.json has hooks object', () => {
     if (!settings || !settings.hooks) return 'No "hooks" key found';
     if (typeof settings.hooks !== 'object') return '"hooks" is not an object';
     return true;
   });
 
   if (!settings || !settings.hooks) {
-    console.log('\nCannot continue — settings.json is invalid.\n');
+    console.log('\nCannot continue — hooks.json is invalid.\n');
     process.exit(1);
   }
 
@@ -141,7 +141,7 @@ function main() {
     // Clear cache to test fresh load
     delete require.cache[require.resolve(utilPath)];
     const util = require(utilPath);
-    if (!util.PROJECT_ROOT) return 'MODULE_ROOT not exported';
+    if (!util.PROJECT_ROOT) return 'PROJECT_ROOT not exported';
     if (!util.readConfig) return 'readConfig not exported';
     if (!util.validatePath) return 'validatePath not exported';
     return true;

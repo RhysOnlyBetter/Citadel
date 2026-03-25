@@ -19,7 +19,7 @@ const STATE_FILE = path.join(CITADEL_DIR, 'issue-monitor-state.json');
 function getGhPath() {
   const windowsPath = '/c/Program Files/GitHub CLI/gh.exe';
   try {
-    if (fs.existsSync(windowsPath) || fs.existsSync(windowsPath.replace(/\//g, '\'))) {
+    if (fs.existsSync(windowsPath) || fs.existsSync(windowsPath.replace(/\//g, '\\'))) {
       return `"${windowsPath}"`;
     }
   } catch {}

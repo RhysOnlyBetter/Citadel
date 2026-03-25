@@ -65,9 +65,9 @@ function stripQuotedContent(cmd) {
   // Strip $(...) subshells (often contain heredocs for commit messages)
   stripped = stripped.replace(/"\$\([\s\S]*?\)"/g, '""');
   // Strip remaining double-quoted strings
-  stripped = stripped.replace(/"(?:[^"\]|\.)*"/g, '""');
+  stripped = stripped.replace(/"(?:[^"\\]|\\.)*"/g, '""');
   // Strip single-quoted strings
-  stripped = stripped.replace(/'(?:[^'\]|\.)*'/g, "''");
+  stripped = stripped.replace(/'(?:[^'\\]|\\.)*'/g, "''");
   return stripped;
 }
 

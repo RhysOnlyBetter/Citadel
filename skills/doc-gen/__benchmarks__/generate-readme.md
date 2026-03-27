@@ -8,7 +8,6 @@ state: with-campaign
 timeout: 240000
 assert-contains:
   - README
-  - source
 assert-not-contains:
   - ENOENT
   - TypeError

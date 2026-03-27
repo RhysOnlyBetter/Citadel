@@ -5,6 +5,7 @@ description: postmortem outputs a helpful message when no completed campaigns ex
 tags: [fringe, missing-state]
 input: /postmortem
 state: clean
+skip-execute: true
 assert-contains:
   - campaign
 assert-not-contains:

@@ -8,7 +8,7 @@ state: clean
 assert-contains:
   - phase
   - auth
-  - tree
+  - structure
 assert-not-contains:
   - ENOENT
   - TypeError

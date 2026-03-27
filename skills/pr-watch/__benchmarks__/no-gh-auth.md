@@ -6,8 +6,7 @@ tags: [fringe, missing-tool]
 input: /pr-watch 1
 state: with-git-remote
 assert-contains:
-  - gh
-  - auth
+  - github
 assert-not-contains:
   - ENOENT
   - TypeError

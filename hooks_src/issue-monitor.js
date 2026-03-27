@@ -20,7 +20,7 @@ function getGhPath() {
   const windowsPath = '/c/Program Files/GitHub CLI/gh.exe';
   try {
     if (fs.existsSync(windowsPath) || fs.existsSync(windowsPath.replace(/\//g, '\\'))) {
-      return `"${windowsPath}"`;
+      return windowsPath;
     }
   } catch {}
   return 'gh';

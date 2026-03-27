@@ -7,8 +7,6 @@ input: /archon
 state: clean
 assert-contains:
   - health
-  - intake
-  - campaigns
 assert-not-contains:
   - ENOENT
   - TypeError

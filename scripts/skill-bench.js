@@ -357,6 +357,69 @@ const STATES = {
     ].join('\n'));
   },
 
+  'with-source': (tmpDir) => {
+    // Project with existing TypeScript React components — for scaffold exemplar tests
+    const srcDir = path.join(tmpDir, 'src', 'components');
+    fs.mkdirSync(srcDir, { recursive: true });
+
+    fs.writeFileSync(path.join(srcDir, 'UserCard.tsx'), [
+      "import React from 'react';",
+      '',
+      'interface UserCardProps {',
+      '  name: string;',
+      '  email: string;',
+      '  avatarUrl?: string;',
+      '}',
+      '',
+      'export const UserCard: React.FC<UserCardProps> = ({ name, email, avatarUrl }) => {',
+      '  return (',
+      '    <div className="user-card">',
+      '      {avatarUrl && <img src={avatarUrl} alt={name} />}',
+      '      <h3>{name}</h3>',
+      '      <p>{email}</p>',
+      '    </div>',
+      '  );',
+      '};',
+      '',
+      'export default UserCard;',
+    ].join('\n'));
+
+    fs.writeFileSync(path.join(srcDir, 'StatusBadge.tsx'), [
+      "import React from 'react';",
+      '',
+      'interface StatusBadgeProps {',
+      '  status: "active" | "inactive" | "pending";',
+      '  label?: string;',
+      '}',
+      '',
+      'export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, label }) => {',
+      '  return (',
+      '    <span className={`badge badge--${status}`}>',
+      '      {label ?? status}',
+      '    </span>',
+      '  );',
+      '};',
+      '',
+      'export default StatusBadge;',
+    ].join('\n'));
+
+    fs.writeFileSync(path.join(srcDir, 'index.ts'), [
+      "export { UserCard } from './UserCard';",
+      "export { StatusBadge } from './StatusBadge';",
+    ].join('\n'));
+
+    fs.writeFileSync(path.join(tmpDir, 'CLAUDE.md'), [
+      '# Test Project',
+      '',
+      'A TypeScript React application.',
+      '',
+      '## Stack',
+      '- TypeScript + React',
+      '- Components in src/components/',
+      '- Named exports, barrel index at src/components/index.ts',
+    ].join('\n'));
+  },
+
   'with-git-remote': (tmpDir) => {
     // Minimal git repo with a GitHub remote — for git-dependent skills (pr-watch, triage)
     try {
